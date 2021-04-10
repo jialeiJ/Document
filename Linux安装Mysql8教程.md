@@ -66,3 +66,8 @@
 	alter user 'root'@'localhost' identified by 'root' password expire never;
 	刷新权限
 	flush privileges;
+	
+### 十一、每次更换新网络后操作
+
+	需要在虚拟网络编辑器中还原默认设置(VMnet8)
+	修改/etc/sysconfig/network-scripts/ifcfg-ens32的IPADDR与GATEWAY(IPADDR与GATEWAY前三段需与VMnet8还原默认设置后保持一致)
