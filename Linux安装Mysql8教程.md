@@ -54,6 +54,17 @@
 	exit;
 	
 	mysql -uroot -p 
+	
+	# 创建数据库并导入执行sql
+		mysql -u username -p;
+
+		创建数据库
+		create database database_name;
+
+		导入表
+		use database_name;
+		执行sql
+		source /tmp/*.sql
 
 ### 九、远程访问的授权
 	
@@ -71,3 +82,4 @@
 
 	需要在虚拟网络编辑器中还原默认设置(VMnet8)
 	修改/etc/sysconfig/network-scripts/ifcfg-ens32的IPADDR与GATEWAY(IPADDR与GATEWAY前三段需与VMnet8还原默认设置后保持一致)
+	注：若windows能ping通linux，linux能ping通windows，但是xshell连不上则需要修改网络适配器

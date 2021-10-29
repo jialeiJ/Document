@@ -35,30 +35,3 @@
 	
 	systemctl enable iptables.service
 
-### 七、进入数据库登陆界面并修改密码
-	
-	mysql -uroot -p 
-	 注：输入第六步查到的密码，进行数据库的登陆，复制粘贴就行，MySQL 的登陆密码也是不显示的
-	 
-	# 修改密码
- 	alter user 'root'@'localhost' identified with mysql_native_password by 'root';
-
-### 八、退出再次登录
-
-	exit;
-	
-	mysql -uroot -p 
-
-### 九、远程访问的授权
-	
-	create user 'root'@'%' identified with mysql_native_password by 'root';
-	grant all privileges on *.* to 'root'@'%' with grant option;
-	flush privileges;
-	
-### 十、修改加密规则(MySql8版本 和 5的加密规则不一样，而现在的可视化工具只支持旧的加密方式)
-
-	alter user 'root'@'localhost' identified by 'root' password expire never;
-	刷新权限
-	flush privileges;
-
-### 到此所有配置完成。

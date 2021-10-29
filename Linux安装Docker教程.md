@@ -59,9 +59,9 @@
 	* 打包
 	mvn clean package docker:build -Dmaven.skip.test=true
 	* 启动镜像
-	docker run -d -p 8081:8080 jaray/docker:latest
+	docker run -d -p 8081(映射端口):8080(实际端口) jaray/docker:latest
 	* 访问
-	http://192.168.0.108:8081/docker
+	http://192.168.5.101:8081/docker
 	
 	1、停止docker
 		service docker stop	
@@ -69,8 +69,23 @@
 		service docker restart
 	3、查看镜像
 		docker images
-	4、查看容器
+	4、启动镜像
+		docker run -p 8080(映射端口):8080(实际端口) -d jaray/docker:latest(REPOSITORY:TAG)
+	5、测试
+		http://192.168.5.101:8080/docker
+	6、查看容器
 		docker ps -a
+	7、停止容器
+		docker stop ffb64ae139ec(容器ID)
+	8、启动容器
+		docker start ffb64ae139ec(容器ID)
+	9、进入容器
+		docker exec -it ffb64ae139ec(容器ID) /bin/bash
+	10、从容器中拷出文件
+		docker cp ffb64ae139ec(容器ID):/docker.jar /home/jaray/docker.jar
+	11、往容器中拷入文件
+		docker cp /home/jaray/backup/防火墙.txt ffb64ae139ec(容器ID):/usr/local/
+		
 
 ### 命令及用法
 	
@@ -111,3 +126,8 @@
 	
 	启动mysql：
 		docker run --name=mysql-5.7 -it -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql:5.7   --character-set-server=utf8
+		
+	构建容器并启动
+		docker run -p 8080(映射端口):8080(实际端口) --name demo -d jaray/docker:latest(REPOSITORY:TAG)
+	查看日志
+		docker logs -f demo(容器名称)
