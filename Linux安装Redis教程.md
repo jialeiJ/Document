@@ -10,8 +10,8 @@
 
 ### 2、编译
 
-	1、cd /usr/local/redis，
-    2、输入make执行编译命令
+	1、cd /usr/local/redis
+    2、make    执行编译命令
 	
 ### 3、安装
 
@@ -23,7 +23,7 @@
 
     通过 /daemonize  查找到属性，默认是no，更改为yes即可。
     将protected-mode设置为no，可通过外网访问
-    修改bind 127.0.0.1 -> 0.0.0.0
+    修改bind 127.0.0.1 -::1 -> bind * -::*
 
 ### 5、防火墙配置
 

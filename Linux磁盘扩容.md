@@ -44,5 +44,6 @@
 	xfs_growfs /dev/mapper/centos-root
 
     /dev/mapper/centos-root是df -h查看到根目录的挂载点
+
     
 
