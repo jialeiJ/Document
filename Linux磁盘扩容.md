@@ -44,6 +44,34 @@
 	xfs_growfs /dev/mapper/centos-root
 
     /dev/mapper/centos-root是df -h查看到根目录的挂载点
+	
+### 五、查找大文件
+
+	find . -type f -size +500M  -print0 | xargs -0 du -h | sort -nr
+	
+### 六、查看各个分区的磁盘占用情况
+
+	df -h
+	
+### 七、统计命令
+
+	#列出当前文件夹的大小
+		du -sh
+	#列出当前文件夹中各个文件及子文件夹的大小：
+		du -h -d1
+	#列出/home文件夹中各个文件及文件夹的大小：
+		du -h -d1 /home
+		
+### 八、清空文件释放空间
+
+	echo "" > yourfile
+	
+### 九、查看已删除未释放的进程
+
+	lsof | grep deleted
+
+	
+
 
     
 
