@@ -131,3 +131,17 @@
 		docker run -p 8080(映射端口):8080(实际端口) --name demo -d jaray/docker:latest(REPOSITORY:TAG)
 	查看日志
 		docker logs -f demo(容器名称)
+		
+### 镜像操作
+	1、加载镜像到本地
+		docker load -i [镜像文件名].tar
+		eg：docker load -i platform-prometheus-image.tar
+	2、查找镜像
+		docker images|grep [镜像名]
+		eg：docker images|grep prometheus
+	3、标记本地镜像，将其归入某一仓库
+		docker tag [镜像/镜像id] [镜像仓库]
+		eg：docker tag **/prometheus **/monitoring/prometheus:[版本号]
+	4、将本地的镜像上传到镜像仓库
+		docker push [镜像仓库]
+		docker push **/monitoring/prometheus:[版本号]
